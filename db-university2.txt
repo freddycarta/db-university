@@ -1,0 +1,43 @@
+GROUP BY
+
+SELECT COUNT(*) AS `numero_iscritti`, YEAR (`enrolment_date`) as year
+FROM students
+GROUP BY `year`;
+
+SELECT COUNT(*) AS `totale`, `office_address`
+FROM teachers
+GROUP BY `office_address`;
+
+SELECT AVG(`vote`) AS `media`, `exam_id`
+FROM `exam_student`
+GROUP BY `exam_id`;
+
+JOIN
+
+SELECT *
+FROM `students`
+JOIN `degrees`
+ON `degrees`.`id` = `students`.`degree_id`
+WHERE `degrees`.`name` = 'corso di laurea in economia';
+
+
+SELECT *
+FROM `degrees`
+JOIN `departments`
+ON `departments`.`id`= `degrees`.`department_id`
+WHERE `departments`.`name` = 'dipartimento di neuroscienze'
+AND `degrees`.`level` = 'magistrale';
+
+SELECT *
+FROM `courses` 
+JOIN `course_teacher`
+ON `course_teacher`.`course_id` = `courses`.`id`
+WHERE `course_teacher`.`teacher_id` = 44
+
+
+
+
+
+
+
+
